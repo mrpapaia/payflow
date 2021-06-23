@@ -46,7 +46,7 @@ class SocialLoginButton extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
                 child: Text(
                   "Entrar com o Google",
-                  style: AppTextStyles.buttonBoldGray,
+                  style: TextStyles.buttonBoldGray,
                 ),
               )
             ],
