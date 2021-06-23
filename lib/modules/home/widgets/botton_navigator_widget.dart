@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:payflow/home/home_controller.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 
 class BottonNavigatorWidget extends StatefulWidget {
