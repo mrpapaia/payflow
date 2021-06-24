@@ -31,11 +31,14 @@ class _HomePageState extends State<HomePage> {
       ),
       body: pages[homeController.currentPage],
       bottomNavigationBar: BottonNavigatorWidget(
-        onTapFrist: () {
+        primaryOnTap: () {
           homeController.setPage(0);
           setState(() {});
         },
-        onTapLast: () {
+        secondOnTap: () {
+          Navigator.pushNamed(context, "/barcodeScanner");
+        },
+        thirdOnTap: () {
           homeController.setPage(1);
           setState(() {});
         },
