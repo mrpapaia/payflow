@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:payflow/modules/home/widgets/boleto_tile_widget.dart';
+import 'package:payflow/shared/models/boleto_model.dart';
+import 'package:payflow/shared/widgets/boleto_list/boleto_list_widget.dart';
+import 'package:payflow/shared/widgets/meu_boletos/meus_boletos_page.dart';
 
 import 'home_controller.dart';
 import 'widgets/app_bar_widget.dart';
@@ -17,9 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final pages = [
-      Container(
-        color: Colors.red,
-      ),
+      MeusBoletosPage(),
       Container(
         color: Colors.blue,
       )
@@ -36,7 +38,7 @@ class _HomePageState extends State<HomePage> {
           setState(() {});
         },
         secondOnTap: () {
-          Navigator.pushNamed(context, "/barcodeScanner");
+          Navigator.pushNamed(context, "/insertBoleto");
         },
         thirdOnTap: () {
           homeController.setPage(1);

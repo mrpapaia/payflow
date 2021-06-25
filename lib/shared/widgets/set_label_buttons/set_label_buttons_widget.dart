@@ -11,31 +11,50 @@ class SetLabelButtons extends StatelessWidget {
   final String secondLabel;
   final VoidCallback secondOnTap;
   final bool enablePrimaryColor;
-  const SetLabelButtons({
-    Key? key,
-    required this.primaryLabel,
-    required this.primaryOnTap,
-    required this.secondLabel,
-    required this.secondOnTap,
-    this.enablePrimaryColor = false,
-  }) : super(key: key);
+  final bool enableSecondaryColor;
+  const SetLabelButtons(
+      {Key? key,
+      required this.primaryLabel,
+      required this.primaryOnTap,
+      required this.secondLabel,
+      required this.secondOnTap,
+      this.enablePrimaryColor = false,
+      this.enableSecondaryColor = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppColors.stroke,
+      color: AppColors.background,
       height: 56,
-      child: Row(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-              child: LabelButtonWidget(
-            label: primaryLabel,
-            onTap: primaryOnTap,
-            style: enablePrimaryColor ? TextStyles.buttonPrimary : null,
-          )),
-          DividerVerticalWidget(),
-          Expanded(
-              child: LabelButtonWidget(label: secondLabel, onTap: secondOnTap)),
+          Divider(
+            height: 1,
+            thickness: 1,
+            color: AppColors.stroke,
+          ),
+          Container(
+            height: 55,
+            child: Row(
+              children: [
+                Expanded(
+                    child: LabelButtonWidget(
+                  label: primaryLabel,
+                  onTap: primaryOnTap,
+                  style: enablePrimaryColor ? TextStyles.buttonPrimary : null,
+                )),
+                DividerVerticalWidget(),
+                Expanded(
+                    child: LabelButtonWidget(
+                  label: secondLabel,
+                  onTap: secondOnTap,
+                  style: enableSecondaryColor ? TextStyles.buttonPrimary : null,
+                )),
+              ],
+            ),
+          ),
         ],
       ),
     );
